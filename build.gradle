@@ -9,13 +9,18 @@ buildscript {
 	}
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15")
 	}
+	
 }
+
+plugins { id "org.asciidoctor.convert" version "1.5.3"}
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'org.asciidoctor.convert'
 
 group = 'de.rieckpil'
 version = '0.0.1-SNAPSHOT'
@@ -41,3 +46,7 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile('org.springframework.security:spring-security-test')
 }
+
+asciidoctor {
+	backends 'html5', 'pdf','docbook'
+ }
