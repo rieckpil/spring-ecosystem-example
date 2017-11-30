@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include resource="org/springframework/boot/logging/logback/base.xml" />
+	<property name="FLUENTD_HOST" value="127.0.0.1" />
+	<property name="FLUENTD_PORT" value="24224" />
+
+	<appender name="FLUENT"
+		class="ch.qos.logback.more.appenders.DataFluentAppender">
+		<tag>fluentd</tag>
+		<label>test</label>
+		<remoteHost>${FLUENTD_HOST}</remoteHost>
+		<port>${FLUENTD_PORT}</port>
+		<maxQueueSize>20</maxQueueSize>
+	</appender>
+
+	<logger name="de.rieckpil" level="info" additivity="false">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="FLUENT" />
+	</logger>
+</configuration>
