@@ -5,3 +5,13 @@
 * 12
 * 12
 * 22
+
+
+=== My fancy table
+
+[width="100%"]
+|=======
+| |Support functionality 1? | Support functionality 2?
+|Choice X |X |
+|Choice Y |  |X
+|=======

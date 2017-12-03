@@ -1,4 +1,5 @@
 :source-highlighter: coderay
+:icons: font
 
 == Hello World!
 
@@ -6,11 +7,39 @@
 * 12
 * 22
 
-.Code-Highlighting
+Java is awesome.footnote:[Uncle Bob 2001]
+
+NOTE: Always run your tests
+
+TIP: Use code coverage
+
+IMPORTANT: Don't forget verifyNoMoreInteractions()
+
+WARNING: Watch out for checking exceptions
+
+CAUTION: Ensure that you only merge when CI is green
+
+
+'''
+
+=== A Checklist
+
+* [*] planning I
+* [x] planning II
+* [ ] coding
+* [ ] review
+
+
+.HelloWorld.java
 [source,java]
 public class HelloWorld{
 	public static void main (String[] args){
 		System.out.println("Hello World!");
 	}
-
 }
+
+.app.py
+[source,python]
+----
+print "Hello World"
+----
