@@ -24,12 +24,19 @@ public class HomeController {
     int random = (int) Math.round(Math.random()*100);
     
     ResponseEntity<List<PersonDto>> response;
+    
     if(random < 33) {
+      
       response = new ResponseEntity<List<PersonDto>>(personList, HttpStatus.OK);
+      
     }else if( 33 < random && random < 66){
+      
       response = new ResponseEntity<List<PersonDto>>(personList, HttpStatus.BAD_REQUEST);
+      
     }else {
+      
      response = new ResponseEntity<List<PersonDto>>(personList, HttpStatus.NOT_FOUND);
+     
     }
     
     return response;
