@@ -21,7 +21,17 @@ public class HomeController {
     personList.add(new PersonDto("Andrea", "Paulsen", new Date()));
     personList.add(new PersonDto("Foo", "Bar", new Date()));
     
-    ResponseEntity<List<PersonDto>> response = new ResponseEntity<List<PersonDto>>(personList, HttpStatus.OK);
+    int random = (int) Math.round(Math.random()*100);
+    
+    ResponseEntity<List<PersonDto>> response;
+    if(random < 33) {
+      response = new ResponseEntity<List<PersonDto>>(personList, HttpStatus.OK);
+    }else if( 33 < random && random < 66){
+      response = new ResponseEntity<List<PersonDto>>(personList, HttpStatus.BAD_REQUEST);
+    }else {
+     response = new ResponseEntity<List<PersonDto>>(personList, HttpStatus.NOT_FOUND);
+    }
+    
     return response;
     
   }
