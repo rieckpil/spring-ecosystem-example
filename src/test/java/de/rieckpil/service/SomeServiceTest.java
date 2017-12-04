@@ -2,6 +2,10 @@ package de.rieckpil.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.verify;
+
+import de.rieckpil.service.SomeDao;
+import de.rieckpil.service.SomeService;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -9,8 +13,6 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import com.rieckpil.service.SomeDao;
-import com.rieckpil.service.SomeService;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SomeServiceTest {

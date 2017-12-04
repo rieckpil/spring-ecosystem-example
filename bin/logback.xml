@@ -8,7 +8,7 @@
 		<tag>fluentd</tag> <label>test</label> <remoteHost>${FLUENTD_HOST}</remoteHost> 
 		<port>${FLUENTD_PORT}</port> <maxQueueSize>20</maxQueueSize> </appender> -->
 
-	<logger name="de.rieckpil" level="info" additivity="false">
+	<logger name="de.rieckpil" level="debug" additivity="false">
 		<appender-ref ref="CONSOLE" />
 		<appender-ref ref="FILE" />
 		<!-- <appender-ref ref="FLUENT" /> -->

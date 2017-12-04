@@ -1,4 +1,4 @@
-package com.rieckpil.service;
+package de.rieckpil.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
