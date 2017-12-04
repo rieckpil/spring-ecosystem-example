@@ -10,6 +10,7 @@ buildscript {
 	dependencies {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.15")
+		classpath("se.transmode.gradle:gradle-docker:1.2")
 	}
 	
 }
@@ -20,6 +21,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'docker'
 apply plugin: 'org.asciidoctor.convert'
 
 group = 'de.rieckpil'
@@ -50,3 +52,16 @@ dependencies {
 asciidoctor {
 	backends 'html5', 'pdf','docbook'
  }
+ 
+ task buildDocker(type: Docker) {
+  baseImage = 'openjdk:latest'
+  push = project.hasProperty('push')
+  tag = 'rieckpil/spring-ecosystem-example'
+  addFile {
+    from jar
+    rename {'app.jar'}
+  }
+  entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/app.jar'])
+}
+
+buildDocker.dependsOn(build)
