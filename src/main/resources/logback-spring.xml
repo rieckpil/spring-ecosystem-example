@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+
+	<springProperty scope="context" name="fluentHost"
+		source="app.fluentd.host" defaultValue="localhost" />
+	<springProperty scope="context" name="fluentPort"
+		source="app.fluentd.port" defaultValue="24442" />
+
 	<include resource="org/springframework/boot/logging/logback/base.xml" />
-	<property name="FLUENTD_HOST" value="127.0.0.1" />
-	<property name="FLUENTD_PORT" value="24224" />
 
 	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
-		<file>logs.log</file>
+		<file>${fluentHost}</file>
 		<append>false</append>
 		<encoder>
 			<pattern>%-5relative %-5level %logger{35} - %msg%n</pattern>
 		</encoder>
 	</appender>
 
-	<!-- <appender name="FLUENT" class="ch.qos.logback.more.appenders.DataFluentAppender"> 
-		<tag>fluentd</tag> <label>test</label> <remoteHost>${FLUENTD_HOST}</remoteHost> 
-		<port>${FLUENTD_PORT}</port> <maxQueueSize>20</maxQueueSize> </appender> -->
+	<!-- <appender name="FLUENT"
+		class="ch.qos.logback.more.appenders.DataFluentAppender">
+		<tag>fluentd</tag>
+		<label>test</label>
+		<remoteHost>${fluentHost}</remoteHost>
+		<port>${fluentPort}</port>
+		<maxQueueSize>20</maxQueueSize>
+	</appender> -->
 
 	<logger name="de.rieckpil" level="debug" additivity="false">
 		<appender-ref ref="CONSOLE" />
